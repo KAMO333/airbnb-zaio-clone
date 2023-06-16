@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Kamo Mmopane",
+      "email": "moroka@gmail.com",
+      "phone": "060 580 7931"
+    },
+    {
+      "id": 2,
+      "name": "Patrick Rashidi",
+      "email": "patrick@gmail.com",
+      "phone": "079 491 3879"
+    },
+    {
+      "email": "mosa@gmail.com",
+      "password": "$2a$10$64wtOQkQStsa7/Mw43Y/t.UYBRuDJTJkx52X3//gHB8931qX1KFba",
+      "id": 3
+    },
+    {
+      "email": "neo@gmail.com",
+      "password": "$2a$10$GreTdzmIZYAbkV5EdL0EP.ydcbw/YBz2ItMOu.Wm5Yv8xmWSKElVC",
+      "id": 4
+    }
+  ],
+  "bookings": [
+    {
+      "listingId": 1,
+      "startDate": "2023-03-28",
+      "endDate": "2023-03-30",
+      "userId": "1"
+    }
+  ],
+  "listings": [
+    {
+      "id": 1,
+      "beth_num": 3,
+      "bed_num": 4,
+      "zip": "23456",
+      "address": "mulberry road",
+      "city": "johannesburg",
+      "street": "mulberry",
+      "price": "R150/night",
+      "sq_ft": 4.2,
+      "email": "test@test.com",
+      "userId": 1
+    }
+  ]
+}

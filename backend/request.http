@@ -1,0 +1,46 @@
+# GET ALL USERS
+GET  http://localhost:5000/users
+#####
+
+#GET A SINGLE USER
+GET  http://localhost:5000/users/2
+####
+
+#REGISTER A USER
+POST  http://localhost:5000/register
+content-type: application/json
+
+{
+   "email": "neo@gmail.com",
+   "password": "bestpassw0rd"
+}
+####
+
+###SIGN IN 
+POST  http://localhost:5000/login
+content-type: application/json
+
+{
+   "email": "neo@gmail.com",
+   "password": "bestpassw0rd"
+}
+###
+
+# GET ALL BOOKINGS
+GET  http://localhost:5000/bookings
+####
+
+# GET ALL BOOKINGS FOR A SINGLE USER
+GET  http://localhost:5000/user/1/bookings
+####
+
+GET http://localhost:5000/listings
+#####
+
+# POST  http://localhost:5000/posts
+# content-type: application/json
+
+#    {
+#       "title": "airbnb clone",
+#       "author": "kamo"
+#     }
