@@ -4,10 +4,11 @@ import Home from "./component/Home/Home";
 import Header from "./component/layout/Header/Header";
 import Footer from "../src/component/layout/Footer/Footer";
 import SearchPage from "./component/SearchPage/SearchPage";
+import Modal from "./component/Modal/Modal";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
         <Header />
         <Switch>
@@ -18,10 +19,13 @@ function App() {
             <SearchPage />
           </Route>
         </Switch>
+        <Route path='/'>
+          <Modal />
+        </Route>
         <Footer />
       </Router>
     </div>
   );
-}
+};
 
 export default App;

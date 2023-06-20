@@ -1,13 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Banner from "../Banner/Banner";
 import Card from "../Cards/Card";
 import "./Home.css";
+import { listListing } from "../../action/listingActions";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  const listingList = useSelector((state) => state.listingList);
+  const { loading, error, listings } = listingList;
+
+  useEffect(() => {
+    dispatch(listListing());
+  }, [dispatch]);
+
   return (
     <div className="home">
       <Banner />
-      <div className="home_section">
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
+        <div className="home_section">
+          {listings.map((listing) => (
+            <Card
+              src={listing.img}
+              title={listing.title}
+              description={listing.description}
+              price={listing.price}
+            />
+          ))}
+        </div>
+      )}
+      {/* <div className="home_section">
         <Card
           src="https://a0.muscache.com/im/pictures/eb9c7c6a-ee33-414a-b1ba-14e8860d59b3.jpg?im_w=720"
           title="Online Experiences"
@@ -23,34 +50,27 @@ const Home = () => {
           title="Entire homes"
           description="Comfortable private places, with room for friends or family."
         />
-      </div>
-      <div className="home_section">
+      </div> */}
+      {/* <div className="home_section">
         <Card
           src="https://media.nomadicmatt.com/2019/airbnb_breakup3.jpg"
           title="3 Bedroom Flat in Bournemouth"
           description="Superhost with a stunning view of the beachside in Sunny Bournemouth"
-          price="R130/night"
+          price="£130/night"
         />
         <Card
           src="https://media.nomadicmatt.com/2019/airbnb_breakup4.jpg"
           title="Penthouse in London"
           description="Enjoy the amazing sights of London with this stunning penthouse"
-          price="R350/night"
+          price="£350/night"
         />
         <Card
           src="https://media.nomadicmatt.com/2018/apartment.jpg"
           title="1 Bedroom apartment"
           description="Superhost with great amenities and a fabolous shopping complex nearby"
-          price="R704/night"
+          price="£70/night"
         />
-        <Card
-          src="https://a0.muscache.com/im/pictures/miso/Hosting-519498133786095007/original/ef440c34-d93e-4c3e-b533-492891e3efeb.jpeg?im_w=720"
-          title="1 Bedroom apartment"
-          description="Superhost with great amenities and a fabolous shopping complex nearby"
-          price="R270/night"
-        />
-      </div> 
-
+      </div> */}
     </div>
   );
 };
